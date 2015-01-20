@@ -13,10 +13,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
-		return true
+		if window == nil {
+			println("window is nil");
+		} else if window!.rootViewController == nil {
+			println("window!.rootViewController is nil");
+		} else {
+			let navigationController: UINavigationController = window!.rootViewController! as UINavigationController;
+			let tableViewController: TableViewController =
+				TableViewController(style: UITableViewStyle.Grouped);
+			navigationController.pushViewController(tableViewController, animated: false);
+		}
+		return true;
 	}
 
 	func applicationWillResignActive(application: UIApplication) {

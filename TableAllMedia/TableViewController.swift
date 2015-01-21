@@ -122,20 +122,23 @@ class TableViewController: UITableViewController {
 			}
 		}
 	*/
-	let ip1: NSIndexPath = NSIndexPath(forRow: 0, inSection: 0);
-	let ip2: NSIndexPath = NSIndexPath(forRow: 1, inSection: 0);
+	
 		if cell == nil {
 			return;
 		}
+
+	let ip0: NSIndexPath = NSIndexPath(forRow: 0, inSection: 0);
+	let ip1: NSIndexPath = NSIndexPath(forRow: 1, inSection: 0);
+	if indexPath.compare(ip0) == NSComparisonResult.OrderedSame {
 		
-		if indexPath.row == ip1 {
+		//if indexPath.section == 0 && indexPath.row == 0 {
 		
 			let secondController: PhotoController =
 				PhotoController(title: "Photo");
 			navigationController!.pushViewController(secondController, animated: true);
 			
 			
-		} else if indexPath.row == ip2 {
+		} else /*if indexPath.section == 0 && indexPath.row == 1*/if indexPath.compare(ip1) == NSComparisonResult.OrderedSame {
 		
 			let thirdController: VideoController =
 				VideoController(title: "Video");
